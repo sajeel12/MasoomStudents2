@@ -40,3 +40,18 @@ def getKey(request):
 
     else:
         return Response({'error': 'some error'}, status=400)
+
+@api_view(['POST'])
+def oneAppJazzCashKey(request):
+    data = JSONParser().parse(request)
+    key = data.get('key')
+    if key is not None:
+        if key == '372db280419bc0ad24e09ecd3ea249ef5be8fb9d3435f3ea53f552160f9c4777':   # change this key to stop jazz cash One app version
+            return Response({'key': key})
+        else:
+            return Response({'key': 'nonononononnonsss###$$$%^&*&^%$#ssssssssssssssooooooooooooo2222222222222222233333333333'}, )
+
+
+    else:
+        return Response({'error': 'some error'}, status=400)
+
