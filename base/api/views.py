@@ -42,7 +42,7 @@ def getKey(request):
         return Response({'error': 'some error'}, status=400)
 
 @api_view(['POST'])
-def oneAppJazzCashKey(request):
+def oneAppJazzCashKey(request):                # bot bloach single jazz app Software
     data = JSONParser().parse(request)
     key = data.get('key')
     if key is not None:
@@ -55,3 +55,16 @@ def oneAppJazzCashKey(request):
     else:
         return Response({'error': 'some error'}, status=400)
 
+@api_view(['POST'])
+def fourInOneAppJazzCashKey(request):                # New
+    data = JSONParser().parse(request)
+    key = data.get('key')
+    if key is not None:
+        if key == '704159eec557e9f8dc99ae92e0ae7272261acf663c6ccdc7634ea4a6c373a4df':   # change this key to stop jazz cash One app version
+            return Response({'key': key})
+        else:
+            return Response({'key': 'afsdaf###$$$%^&*&^%$#ut'}, )
+
+
+    else:
+        return Response({'error': 'some error'}, status=400)
