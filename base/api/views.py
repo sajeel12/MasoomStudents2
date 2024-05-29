@@ -68,3 +68,18 @@ def fourInOneAppJazzCashKey(request):                # New
 
     else:
         return Response({'error': 'some error'}, status=400)
+
+
+@api_view(['POST'])
+def adityaBot(request):                # New
+    data = JSONParser().parse(request)
+    key = data.get('key')
+    if key is not None:
+        if key == 'af80f0bb36451848aa71eb5f834cd78ffeac2f12f74c280644235c8254563326':   # change this key to stop jazz cash One app version
+            return Response({'key': key})
+        else:
+            return Response({'key': 'afsdaf###$$$%^&*&^%$#ut'}, )
+
+
+    else:
+        return Response({'error': 'some error'}, status=400)

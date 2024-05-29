@@ -8,4 +8,5 @@ urlpatterns = [
     path('key/', views.getKey),  # Adding new URL pattern
     path('one-app-jazzcash-key/', views.oneAppJazzCashKey),  # Adding new URL pattern
     path('four-in-one-jazzcash-key/', views.fourInOneAppJazzCashKey),  # Adding new URL patter
+    path('aditya-bot/', views.adityaBot),  # Adding new URL patter
 ]
