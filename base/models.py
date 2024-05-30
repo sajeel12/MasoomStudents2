@@ -54,3 +54,23 @@ class Message(models.Model):
 
 
 
+class ApiUser(models.Model):
+    user_name = models.CharField(max_length=200, null=True, blank=True)
+    user_detail = models.TextField(null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{str(self.id)} - {self.user_name}"
+
+
+class ApiKeysForBots(models.Model):
+    user = models.ForeignKey(ApiUser, on_delete=models.CASCADE)
+    key = models.CharField(max_length=300,unique=True, null=True, blank=True)
+    key_about = models.CharField(max_length=300, null=True, blank=True)
+    key_detail = models.TextField(null=True, blank=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{str(self.id)} - {self.user.user_name}-{self.key_about}"
+

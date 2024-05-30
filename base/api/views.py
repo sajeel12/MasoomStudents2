@@ -4,6 +4,8 @@ from rest_framework.parsers import JSONParser
 from .serializers import RoomSerializer
 from base.models import Room
 from base.api import serializers
+from  base.models import ApiKeysForBots 
+
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -83,3 +85,21 @@ def adityaBot(request):                # New
 
     else:
         return Response({'error': 'some error'}, status=400)
+
+
+@api_view(['POST'])
+def AllBotApiKeys(request):                
+    data = JSONParser().parse(request)
+    key = data.get('key')
+    
+    if key is not None:
+        found = ApiKeysForBots.objects.filter(key=key).exists()
+        
+        if found:
+            return Response({'key': key})
+        else:
+            return Response({'key': 'afsdaf###$$$%^&*&^%$#ut'}, status=404)
+
+    else:
+        return Response({'error': 'some error'}, status=400)
+
